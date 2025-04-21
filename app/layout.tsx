@@ -1,14 +1,15 @@
-import Providers from './Providers'; // Use relative path
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import './globals.css'; // Ensure this imports the global styles
+
+import Providers from './Providers';
+import type { Metadata } from "next";
+import './globals.css';
+import { Navbar } from "@/components/Navbar";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/Navbar"; // Your Navbar component
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Legal Moustache",
+  title: "Legal-Moustache",
   description: "AI-Powered Marketing Compliance Checks",
 };
 
@@ -21,20 +22,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        // Keep existing classes for background, font, layout
         className={cn(
-          "min-h-screen flex flex-col bg-[#FFFFF6] font-sans antialiased",
-          inter.variable
-        )}
-      >
-        {/* Wrap Navbar and main content with Providers */}
+          "min-h-screen bg-[#FFFFF6] font-sans antialiased",inter.variable)} >
         <Providers>
-          <Navbar /> {/* Render the Navbar component */}
-          {/* flex-1 allows this main section to grow */}
-          <main className="flex-1">
-            {children}
-          </main>
-          {/* Footer could potentially go here */}
+          <Navbar />
+          <main className="mx-auto max-w-7xl px-6">{children}</main>
         </Providers>
       </body>
     </html>
