@@ -23,10 +23,12 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-[#FFFFF6] font-sans antialiased",inter.variable)} >
+          "min-h-screen bg-white font-sans antialiased",inter.variable)} >
         <Providers>
           <Navbar />
-          <main className="mx-auto max-w-7xl px-6">{children}</main>
+          <main className="mx-auto max-w-7xl px-6">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>
